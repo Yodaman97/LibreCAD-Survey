@@ -44,6 +44,7 @@
 #include "rs_circle.h"
 #include "rs_debug.h"
 #include "rs_ellipse.h"
+#include "lc_graphicviewport.h"
 #include "rs_eventhandler.h"
 #include "rs_graphicview.h"
 #include "rs_image.h"
@@ -806,6 +807,15 @@ bool Doc_plugin_interface::addToUndo(RS_Entity* current, RS_Entity* modified,
 void Doc_plugin_interface::updateView(){
     doc->setSelected(false);
     gView->getContainer()->calculateBorders();
+    gView->redraw();
+}
+
+void Doc_plugin_interface::zoomToPoint(QPointF center, double range){
+    if(!gView) return;
+    RS_Vector c(center.x(), center.y());
+    RS_Vector v1 = c - RS_Vector(range, range);
+    RS_Vector v2 = c + RS_Vector(range, range);
+    gView->getViewPort()->zoomWindow(v1, v2, true);
     gView->redraw();
 }
 
