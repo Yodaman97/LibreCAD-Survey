@@ -19,6 +19,7 @@ SUBDIRS     = \
         picfile \
         plotequation \
         pointstocsv \
+        surveytools \
         gear
 
 TRANSLATIONS = ./ts/plugins_ar.ts \

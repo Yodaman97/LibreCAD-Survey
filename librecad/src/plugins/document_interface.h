@@ -307,6 +307,13 @@ public:
     */
     virtual void updateView() = 0;
 
+    //! Zoom the current view to a point.
+    /*! Centers and zooms the active view around the given point.
+     *  \param center world coordinate of the target point
+     *  \param range   half-size of the zoom window around the point
+     */
+    virtual void zoomToPoint(QPointF center, double range = 10.0) = 0;
+
     //! Add point entity to current document.
     /*! Add point entity to current document with current attributes.
     *  \param start point coordinate.

@@ -100,6 +100,8 @@ public:
     void removeEntity(Plug_Entity *ent) override;
     void updateEntity(RS_Entity *org, RS_Entity *newe);
 
+    void zoomToPoint(QPointF center, double range = 10.0) override;
+
     void setLayer(QString name) override;
     QString getCurrentLayer() override;
     QStringList getAllLayer() override;
